@@ -19,7 +19,7 @@ func (a *App) InitiateSwap(userID, fromCurrency, toCurrency string, amount float
 	userLock := mu.(*sync.Mutex)
 
 	// 2. Lock with visible start/end markers
-	a.logger.Printf("[%s] 🔒 WAITING FOR LOCK (%s→%s)", userID, fromCurrency, toCurrency)
+	a.logger.Printf("[%s] WAITING FOR LOCK (%s→%s)", userID, fromCurrency, toCurrency)
 	userLock.Lock()
 	defer func() {
 		userLock.Unlock()
